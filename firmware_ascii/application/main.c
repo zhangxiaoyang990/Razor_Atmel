@@ -14,6 +14,7 @@ All Global variable names shall start with "G_"
 /* New variables */
 volatile u32 G_u32SystemFlags = 0;                     /* Global system flags */
 volatile u32 G_u32ApplicationFlags = 0;                /* Global applications flags: set when application is successfully initialized */
+static u8 Main_u8Servers = 0;
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 /* External global variables defined in other files (must indicate which file they are defined in) */
@@ -41,8 +42,9 @@ the 1ms period.
 
 void main(void)
 {
+  u32 u32UselessVariableForExample;
   G_u32SystemFlags |= _SYSTEM_INITIALIZING;
-
+  u32UselessVariableForExample = 0;
   /* Low level initialization */
   WatchDogSetup(); /* During development, does not reset processor if timeout */
   GpioSetup();
@@ -85,6 +87,7 @@ void main(void)
   {
     WATCHDOG_BONE();
     
+    u32UselessVariableForExample++;
     /* Drivers */
     LedUpdate();
     ButtonRunActiveState();
@@ -106,9 +109,9 @@ void main(void)
     UserApp3RunActiveState();
     
     /* System sleep*/
-    HEARTBEAT_OFF();
+    //HEARTBEAT_OFF();
     SystemSleep();
-    HEARTBEAT_ON();
+    //HEARTBEAT_ON();
     
   } /* end while(1) main super loop */
   

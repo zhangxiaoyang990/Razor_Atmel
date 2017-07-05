@@ -15,7 +15,7 @@ typedef short SHORT;            /* Signed 16-bits */
 typedef unsigned short USHORT;  /* Unsigned 16-bits */
 typedef long LONG;              /* Signed 32-bits */
 typedef unsigned long ULONG;    /* Unsigned 32-bits */
-typedef unsigned char BOOL;     /* Boolean */
+//typedef unsigned char BOOL;     /* Boolean */
 
 
 /* Standard Peripheral Library old types (maintained for legacy purpose) */
